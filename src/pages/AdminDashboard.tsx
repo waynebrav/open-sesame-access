@@ -327,7 +327,13 @@ const AdminDashboard = () => {
           <Route path="/notifications" element={<NotificationManagement />} />
           <Route path="/vouchers" element={<VoucherManagement />} />
           <Route path="/flash-sales" element={<FlashSaleManagement />} />
-          <Route path="/payments" element={<PaymentManagement />} />
+          <Route path="/payments" element={
+            <div className="space-y-6">
+              <EnhancedPaymentManagement />
+              <RecentTransactions />
+              <PaymentManagement />
+            </div>
+          } />
           <Route path="/currency" element={<CurrencySettings />} />
         </Routes>
       </div>

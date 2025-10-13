@@ -889,6 +889,48 @@ export type Database = {
         }
         Relationships: []
       }
+      payment_providers: {
+        Row: {
+          code: string
+          configuration: Json | null
+          created_at: string | null
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean
+          name: string
+          requires_api_key: boolean
+          supported_currencies: string[] | null
+          updated_at: string | null
+        }
+        Insert: {
+          code: string
+          configuration?: Json | null
+          created_at?: string | null
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name: string
+          requires_api_key?: boolean
+          supported_currencies?: string[] | null
+          updated_at?: string | null
+        }
+        Update: {
+          code?: string
+          configuration?: Json | null
+          created_at?: string | null
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          name?: string
+          requires_api_key?: boolean
+          supported_currencies?: string[] | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       payment_transactions: {
         Row: {
           amount: number

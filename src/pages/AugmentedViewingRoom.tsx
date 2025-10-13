@@ -215,6 +215,43 @@ const AugmentedViewingRoom = () => {
             </div>
           )}
 
+          {/* AR Features Section */}
+          {selectedProduct && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <ARWishlistIntegration 
+                onViewInAR={(productId) => {
+                  const product = arProducts?.find(p => p.id === productId);
+                  if (product) {
+                    setSelectedProduct(product);
+                    setIsARActive(true);
+                  }
+                }}
+                onAddToCart={(productId) => {
+                  const product = arProducts?.find(p => p.id === productId);
+                  if (product) {
+                    handleAddToCart(productId, product.name);
+                  }
+                }}
+              />
+              <ARSocialSharing 
+                productName={selectedProduct.name}
+                productId={selectedProduct.id}
+                onTakeScreenshot={() => {
+                  toast({
+                    title: "Screenshot captured!",
+                    description: "Your AR view has been captured successfully.",
+                  });
+                }}
+                onRecordVideo={() => {
+                  toast({
+                    title: "Recording started",
+                    description: "Your AR session is being recorded.",
+                  });
+                }}
+              />
+            </div>
+          )}
+
           <ARInfoSection />
         </div>
       </main>
