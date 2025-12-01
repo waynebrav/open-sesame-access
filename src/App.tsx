@@ -40,6 +40,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import ReturnsAndRefunds from "./pages/ReturnsAndRefunds";
 import WarrantyInformation from "./pages/WarrantyInformation";
+import ProductComparison from "./pages/ProductComparison";
+import Support from "./pages/Support";
 import { useAuth } from "@/context/AuthContext";
 import React from 'react';
 import { useLocation } from "react-router-dom";
@@ -133,6 +135,8 @@ const App = () => {
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/returns" element={<ReturnsAndRefunds />} />
                 <Route path="/warranty" element={<WarrantyInformation />} />
+                <Route path="/comparison" element={<ProductComparison />} />
+                <Route path="/support" element={<Support />} />
                 
                 <Route path="*" element={<NotFound />} />
         </Routes>
