@@ -613,6 +613,45 @@ export type Database = {
         }
         Relationships: []
       }
+      faqs: {
+        Row: {
+          answer: string
+          category: string
+          created_at: string | null
+          helpful_count: number | null
+          id: string
+          is_published: boolean | null
+          question: string
+          sort_order: number | null
+          updated_at: string | null
+          views_count: number | null
+        }
+        Insert: {
+          answer: string
+          category: string
+          created_at?: string | null
+          helpful_count?: number | null
+          id?: string
+          is_published?: boolean | null
+          question: string
+          sort_order?: number | null
+          updated_at?: string | null
+          views_count?: number | null
+        }
+        Update: {
+          answer?: string
+          category?: string
+          created_at?: string | null
+          helpful_count?: number | null
+          id?: string
+          is_published?: boolean | null
+          question?: string
+          sort_order?: number | null
+          updated_at?: string | null
+          views_count?: number | null
+        }
+        Relationships: []
+      }
       login_history: {
         Row: {
           created_at: string | null
@@ -721,6 +760,36 @@ export type Database = {
           name?: string
           shortcode?: string
           updated_at?: string
+        }
+        Relationships: []
+      }
+      newsletter_subscribers: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          is_active: boolean | null
+          preferences: Json | null
+          subscribed_at: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          is_active?: boolean | null
+          preferences?: Json | null
+          subscribed_at?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          is_active?: boolean | null
+          preferences?: Json | null
+          subscribed_at?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }
@@ -1074,6 +1143,33 @@ export type Database = {
           name?: string
           total_price?: number
           updated_at?: string | null
+        }
+        Relationships: []
+      }
+      product_comparisons: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string | null
+          product_ids: string[]
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          product_ids: string[]
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          product_ids?: string[]
+          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -1474,6 +1570,94 @@ export type Database = {
           },
         ]
       }
+      support_messages: {
+        Row: {
+          attachments: Json | null
+          created_at: string | null
+          id: string
+          is_read: boolean | null
+          message: string
+          sender_id: string | null
+          sender_type: string
+          ticket_id: string
+        }
+        Insert: {
+          attachments?: Json | null
+          created_at?: string | null
+          id?: string
+          is_read?: boolean | null
+          message: string
+          sender_id?: string | null
+          sender_type: string
+          ticket_id: string
+        }
+        Update: {
+          attachments?: Json | null
+          created_at?: string | null
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          sender_id?: string | null
+          sender_type?: string
+          ticket_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "support_messages_ticket_id_fkey"
+            columns: ["ticket_id"]
+            isOneToOne: false
+            referencedRelation: "support_tickets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      support_tickets: {
+        Row: {
+          assigned_to: string | null
+          category: string | null
+          created_at: string | null
+          email: string
+          id: string
+          priority: string | null
+          status: string | null
+          subject: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          assigned_to?: string | null
+          category?: string | null
+          created_at?: string | null
+          email: string
+          id?: string
+          priority?: string | null
+          status?: string | null
+          subject: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          assigned_to?: string | null
+          category?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          priority?: string | null
+          status?: string | null
+          subject?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "support_tickets_assigned_to_fkey"
+            columns: ["assigned_to"]
+            isOneToOne: false
+            referencedRelation: "admins"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       system_settings: {
         Row: {
           created_at: string | null
@@ -1498,6 +1682,48 @@ export type Database = {
           type?: string
           updated_at?: string | null
           value?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          customer_name: string
+          customer_role: string | null
+          id: string
+          is_featured: boolean | null
+          is_published: boolean | null
+          rating: number | null
+          testimonial: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          customer_name: string
+          customer_role?: string | null
+          id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          rating?: number | null
+          testimonial: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          customer_name?: string
+          customer_role?: string | null
+          id?: string
+          is_featured?: boolean | null
+          is_published?: boolean | null
+          rating?: number | null
+          testimonial?: string
+          updated_at?: string | null
+          user_id?: string | null
         }
         Relationships: []
       }
