@@ -1,4 +1,3 @@
-
 project_id = "yhlxoypsnlraplpifrfg"
 
 # Set the callback URL for GitHub OAuth
@@ -12,4 +11,7 @@ redirect_uri = "https://yhlxoypsnlraplpifrfg.supabase.co/auth/v1/callback"
 verify_jwt = false
 
 [functions.paypal-execute-payment]
+verify_jwt = false
+
+[functions.send-email]
 verify_jwt = false

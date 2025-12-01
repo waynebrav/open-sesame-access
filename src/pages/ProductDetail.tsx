@@ -22,6 +22,7 @@ import { ShoppingCart, Heart, ArrowLeft, Star, Package, Clock, Shield, Truck, Ey
 import { useCurrency } from "@/context/CurrencyContext";
 import { Badge } from "@/components/ui/badge";
 import ModelViewer from "@/components/ModelViewer";
+import ProductReviews from "@/components/ProductReviews";
 
 interface ProductImage {
   id: string;
@@ -750,6 +751,11 @@ const ProductDetail = () => {
               </div>
             </TabsContent>
           </Tabs>
+          
+          {/* Product Reviews Section */}
+          <div className="mt-12">
+            <ProductReviews productId={product.id} />
+          </div>
         </div>
       </main>
       

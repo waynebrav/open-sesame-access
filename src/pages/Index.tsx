@@ -10,7 +10,6 @@ import LimitedOfferNotification from "@/components/LimitedOfferNotification";
 import ProductRecommendations from "@/components/ProductRecommendations";
 import QuickAddToCart from "@/components/QuickAddToCart";
 import UserNotifications from "@/components/UserNotifications";
-import LiveChatWidget from "@/components/LiveChatWidget";
 import PersonalizedRecommendations from "@/components/PersonalizedRecommendations";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Button } from "@/components/ui/button";
@@ -177,7 +176,6 @@ const Index = () => {
         <NewsletterSection />
       </main>
       <QuickAddToCart />
-      <LiveChatWidget />
       <Footer />
     </div>
   );
