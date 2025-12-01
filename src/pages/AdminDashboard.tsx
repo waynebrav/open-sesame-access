@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { LayoutDashboard, Users, ShoppingBag, Settings, LogOut, LineChart, BoxIcon, Loader2, ArrowLeft, Package, Bell, Zap, Ticket, CreditCard } from "lucide-react";
+import { LayoutDashboard, Users, ShoppingBag, Settings, LogOut, LineChart, BoxIcon, Loader2, ArrowLeft, Package, Bell, Zap, Ticket, CreditCard, Award } from "lucide-react";
 import UserManagement from "./admin/UserManagement";
 import ProductManagement from "./admin/ProductManagement";
 import SettingsPanel from "./admin/SettingsPanel";
@@ -19,6 +19,9 @@ import { PaymentManagement } from "@/components/admin/PaymentManagement";
 import { RecentTransactions } from "@/components/admin/RecentTransactions";
 import { EnhancedPaymentManagement } from "@/components/admin/EnhancedPaymentManagement";
 import { CurrencySettings } from "@/components/admin/CurrencySettings";
+import FAQManagement from "@/components/admin/FAQManagement";
+import TestimonialManagement from "@/components/admin/TestimonialManagement";
+import SupportTicketsManagement from "@/components/admin/SupportTicketsManagement";
 import { useToast } from "@/components/ui/use-toast";
 import {
   ChartContainer,
@@ -299,6 +302,48 @@ const AdminDashboard = () => {
                 Payments
               </Link>
             </li>
+            <li>
+              <Link 
+                to="/admin/faqs" 
+                className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 ${
+                  activeTab === "faqs" 
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-r-2 border-blue-600" 
+                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                }`}
+                onClick={() => setActiveTab("faqs")}
+              >
+                <Package className="mr-3 h-5 w-5" />
+                FAQs
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/admin/testimonials" 
+                className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 ${
+                  activeTab === "testimonials" 
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-r-2 border-blue-600" 
+                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                }`}
+                onClick={() => setActiveTab("testimonials")}
+              >
+                <Award className="mr-3 h-5 w-5" />
+                Testimonials
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/admin/support-tickets" 
+                className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 ${
+                  activeTab === "support-tickets" 
+                    ? "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-r-2 border-blue-600" 
+                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                }`}
+                onClick={() => setActiveTab("support-tickets")}
+              >
+                <Ticket className="mr-3 h-5 w-5" />
+                Support Tickets
+              </Link>
+            </li>
           </ul>
           
           <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
@@ -335,6 +380,9 @@ const AdminDashboard = () => {
             </div>
           } />
           <Route path="/currency" element={<CurrencySettings />} />
+          <Route path="/faqs" element={<FAQManagement />} />
+          <Route path="/testimonials" element={<TestimonialManagement />} />
+          <Route path="/support-tickets" element={<SupportTicketsManagement />} />
         </Routes>
       </div>
     </div>
