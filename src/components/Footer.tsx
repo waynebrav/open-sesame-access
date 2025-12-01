@@ -2,11 +2,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Youtube, Github, Linkedin } from "lucide-react";
+import NewsletterSubscription from "./NewsletterSubscription";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-50 border-t">
       <div className="container py-12 md:py-16">
+        {/* Newsletter Section */}
+        <div className="mb-12">
+          <NewsletterSubscription />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
