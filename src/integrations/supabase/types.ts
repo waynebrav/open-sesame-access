@@ -1789,7 +1789,7 @@ export type Database = {
         }[]
       }
       get_admin_dashboard_stats: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           active_products: number
           orders_count: number
@@ -1801,14 +1801,8 @@ export type Database = {
           user_growth_percentage: number
         }[]
       }
-      is_admin: {
-        Args: { user_id: string }
-        Returns: boolean
-      }
-      is_vendor: {
-        Args: { user_id: string }
-        Returns: boolean
-      }
+      is_admin: { Args: { user_id: string }; Returns: boolean }
+      is_vendor: { Args: { user_id: string }; Returns: boolean }
       record_mpesa_callback: {
         Args: {
           p_callback_data: Json

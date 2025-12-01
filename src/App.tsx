@@ -29,6 +29,17 @@ import UserPreferencesSurvey from "./components/UserPreferencesSurvey";
 import BuildSetup from "./pages/BuildSetup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+import Press from "./pages/Press";
+import HelpCenter from "./pages/HelpCenter";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
+import ReturnsAndRefunds from "./pages/ReturnsAndRefunds";
+import WarrantyInformation from "./pages/WarrantyInformation";
 import { useAuth } from "@/context/AuthContext";
 import React from 'react';
 import { useLocation } from "react-router-dom";
@@ -109,6 +120,20 @@ const App = () => {
                 <Route path="/admin/*" element={<AdminDashboard />} />
                 <Route path="/ar-room" element={<AugmentedViewingRoom />} />
                 <Route path="/build-setup" element={<BuildSetup />} />
+                
+                {/* Footer & Info Pages */}
+                <Route path="/about" element={<About />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/press" element={<Press />} />
+                <Route path="/help-center" element={<HelpCenter />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/returns" element={<ReturnsAndRefunds />} />
+                <Route path="/warranty" element={<WarrantyInformation />} />
+                
                 <Route path="*" element={<NotFound />} />
         </Routes>
         <ConditionalComponents />
