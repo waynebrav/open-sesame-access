@@ -76,12 +76,13 @@ const Index = () => {
           <UserNotifications />
         </div>
         
-        {/* AI Recommended Products Section - Above Featured Products */}
+        {/* AI Recommended Products Section */}
         <section className="container py-12">
           <ProductRecommendations className="mb-8" />
         </section>
         
         <FeaturedProducts />
+        
         <CategoriesSection />
         
         <ARPromotion />
