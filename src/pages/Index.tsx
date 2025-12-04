@@ -6,11 +6,9 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import CategoriesSection from "@/components/CategoriesSection";
 import ARPromotion from "@/components/ARPromotion";
 import NewsletterSection from "@/components/NewsletterSection";
-import LimitedOfferNotification from "@/components/LimitedOfferNotification";
 import ProductRecommendations from "@/components/ProductRecommendations";
 import QuickAddToCart from "@/components/QuickAddToCart";
 import UserNotifications from "@/components/UserNotifications";
-import PersonalizedRecommendations from "@/components/PersonalizedRecommendations";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -128,49 +126,50 @@ const Index = () => {
           </div>
         </div>
         
-        {/* New Trusted By Section */}
-        <div className="bg-gray-50 dark:bg-gray-900 py-10">
+        {/* Trusted Brands Section */}
+        <div className="bg-muted/50 py-10">
           <div className="container mx-auto px-4">
-            <h3 className="text-center text-lg text-gray-500 dark:text-gray-400 mb-8">Trusted by over 10,000 customers worldwide</h3>
+            <h3 className="text-center text-lg text-muted-foreground mb-8">Trusted brands we carry</h3>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-              <img src="https://placehold.co/100x40?text=Brand+1" alt="Brand 1" className="h-8 opacity-50 hover:opacity-100 transition-opacity" />
-              <img src="https://placehold.co/100x40?text=Brand+2" alt="Brand 2" className="h-8 opacity-50 hover:opacity-100 transition-opacity" />
-              <img src="https://placehold.co/100x40?text=Brand+3" alt="Brand 3" className="h-8 opacity-50 hover:opacity-100 transition-opacity" />
-              <img src="https://placehold.co/100x40?text=Brand+4" alt="Brand 4" className="h-8 opacity-50 hover:opacity-100 transition-opacity" />
-              <img src="https://placehold.co/100x40?text=Brand+5" alt="Brand 5" className="h-8 opacity-50 hover:opacity-100 transition-opacity" />
+              {['Apple', 'Samsung', 'Sony', 'LG', 'Dell', 'Canon', 'Google'].map((brand) => (
+                <div 
+                  key={brand}
+                  className="px-6 py-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                >
+                  <span className="text-lg font-semibold text-foreground">{brand}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
         
         {/* Enhanced Features Section with Icons */}
         <div className="container py-16">
-          <h2 className="text-center text-3xl font-bold mb-12">Why Choose Electrify?</h2>
+          <h2 className="text-center text-3xl font-bold text-foreground mb-12">Why Choose Electrify?</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full mb-6">
-                <Zap className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+            <div className="flex flex-col items-center text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow border border-border">
+              <div className="bg-primary/10 p-4 rounded-full mb-6">
+                <Zap className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Fast Delivery</h3>
-              <p className="text-gray-600 dark:text-gray-300">Get your electronics delivered to your doorstep in as little as 24 hours.</p>
+              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Fast Delivery</h3>
+              <p className="text-muted-foreground">Get your electronics delivered to your doorstep in as little as 24 hours.</p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-green-100 dark:bg-green-900/30 p-4 rounded-full mb-6">
+            <div className="flex flex-col items-center text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow border border-border">
+              <div className="bg-green-500/10 p-4 rounded-full mb-6">
                 <Award className="h-8 w-8 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Quality Guaranteed</h3>
-              <p className="text-gray-600 dark:text-gray-300">All our products undergo rigorous testing to ensure the highest quality standards.</p>
+              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Quality Guaranteed</h3>
+              <p className="text-muted-foreground">All our products undergo rigorous testing to ensure the highest quality standards.</p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full mb-6">
+            <div className="flex flex-col items-center text-center p-6 bg-card rounded-xl shadow-sm hover:shadow-md transition-shadow border border-border">
+              <div className="bg-purple-500/10 p-4 rounded-full mb-6">
                 <Shield className="h-8 w-8 text-purple-600 dark:text-purple-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Extended Warranty</h3>
-              <p className="text-gray-600 dark:text-gray-300">Enjoy peace of mind with our extended warranty options on all electronics.</p>
+              <h3 className="text-xl font-semibold mb-3 text-card-foreground">Extended Warranty</h3>
+              <p className="text-muted-foreground">Enjoy peace of mind with our extended warranty options on all electronics.</p>
             </div>
           </div>
         </div>
-        
-        <PersonalizedRecommendations />
         
         <TestimonialsSection />
         
