@@ -616,16 +616,16 @@ const ProductDetail = () => {
           
           {/* Product Details Tabs */}
           <Tabs defaultValue="description" className="mb-12">
-            <TabsList className={`grid w-full ${(product.video_url || product.model_3d_url) ? 'grid-cols-5' : 'grid-cols-3'}`}>
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="specifications">Specifications</TabsTrigger>
+            <TabsList className="flex flex-wrap h-auto gap-1 p-1 w-full">
+              <TabsTrigger value="description" className="flex-1 min-w-[100px] text-xs sm:text-sm">Description</TabsTrigger>
+              <TabsTrigger value="specifications" className="flex-1 min-w-[100px] text-xs sm:text-sm">Specifications</TabsTrigger>
               {product.video_url && (
-                <TabsTrigger value="video">Video</TabsTrigger>
+                <TabsTrigger value="video" className="flex-1 min-w-[80px] text-xs sm:text-sm">Video</TabsTrigger>
               )}
               {product.model_3d_url && (
-                <TabsTrigger value="3d-model">3D Model</TabsTrigger>
+                <TabsTrigger value="3d-model" className="flex-1 min-w-[80px] text-xs sm:text-sm">3D Model</TabsTrigger>
               )}
-              <TabsTrigger value="shipping">Shipping & Returns</TabsTrigger>
+              <TabsTrigger value="shipping" className="flex-1 min-w-[120px] text-xs sm:text-sm">Shipping & Returns</TabsTrigger>
             </TabsList>
             <TabsContent value="description" className="mt-6">
               <div className="prose max-w-none dark:prose-invert">
@@ -650,31 +650,31 @@ const ProductDetail = () => {
               </div>
             </TabsContent>
             <TabsContent value="specifications" className="mt-6">
-              <div className="border rounded-lg divide-y">
+              <div className="border border-border rounded-lg divide-y divide-border overflow-hidden">
                 {product.product_specifications.length > 0 ? (
                   product.product_specifications.map((spec) => (
-                    <div key={spec.id} className="grid grid-cols-3 py-3 px-4">
-                      <dt className="font-medium text-sm">{spec.name}</dt>
-                      <dd className="col-span-2 text-sm">{spec.value}</dd>
+                    <div key={spec.id} className="grid grid-cols-1 sm:grid-cols-3 py-3 px-4 gap-1 sm:gap-0">
+                      <dt className="font-medium text-sm text-foreground">{spec.name}</dt>
+                      <dd className="sm:col-span-2 text-sm text-muted-foreground">{spec.value}</dd>
                     </div>
                   ))
                 ) : (
-                  <div className="p-4 text-center text-gray-500">
+                  <div className="p-4 text-center text-muted-foreground">
                     No specifications available
                   </div>
                 )}
                 
                 {/* Additional common specs */}
                 {product.brand && (
-                  <div className="grid grid-cols-3 py-3 px-4">
-                    <dt className="font-medium text-sm">Brand</dt>
-                    <dd className="col-span-2 text-sm">{product.brand}</dd>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 py-3 px-4 gap-1 sm:gap-0">
+                    <dt className="font-medium text-sm text-foreground">Brand</dt>
+                    <dd className="sm:col-span-2 text-sm text-muted-foreground">{product.brand}</dd>
                   </div>
                 )}
                 {product.model && (
-                  <div className="grid grid-cols-3 py-3 px-4">
-                    <dt className="font-medium text-sm">Model</dt>
-                    <dd className="col-span-2 text-sm">{product.model}</dd>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 py-3 px-4 gap-1 sm:gap-0">
+                    <dt className="font-medium text-sm text-foreground">Model</dt>
+                    <dd className="sm:col-span-2 text-sm text-muted-foreground">{product.model}</dd>
                   </div>
                 )}
               </div>
@@ -732,20 +732,26 @@ const ProductDetail = () => {
               </TabsContent>
             )}
             <TabsContent value="shipping" className="mt-6">
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Shipping</h3>
-                  <p className="text-gray-700">
+              <div className="space-y-6">
+                <div className="p-4 bg-muted/50 rounded-lg">
+                  <h3 className="text-lg font-medium mb-2 text-foreground flex items-center gap-2">
+                    <Truck className="h-5 w-5 text-primary" />
+                    Shipping
+                  </h3>
+                  <p className="text-muted-foreground">
                     We offer free shipping on orders above KSh 5,000. Orders are typically processed within 24 hours and delivered within 2-3 business days in Nairobi and 3-5 business days in other parts of Kenya.
                   </p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-medium mb-2">Returns & Warranty</h3>
-                  <p className="text-gray-700">
+                <div className="p-4 bg-muted/50 rounded-lg">
+                  <h3 className="text-lg font-medium mb-2 text-foreground flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-primary" />
+                    Returns & Warranty
+                  </h3>
+                  <p className="text-muted-foreground">
                     {product.return_policy || "We offer a 7-day return policy for unused items in original packaging. Please contact our customer support to initiate a return."}
                   </p>
-                  <p className="text-gray-700 mt-2">
-                    Warranty: {product.warranty_info || "Standard manufacturer warranty applies to this product."}
+                  <p className="text-muted-foreground mt-2">
+                    <strong className="text-foreground">Warranty:</strong> {product.warranty_info || "Standard manufacturer warranty applies to this product."}
                   </p>
                 </div>
               </div>
