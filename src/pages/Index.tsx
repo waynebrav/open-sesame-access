@@ -131,12 +131,24 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <h3 className="text-center text-lg text-muted-foreground mb-8">Trusted brands we carry</h3>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-              {['Apple', 'Samsung', 'Sony', 'LG', 'Dell', 'Canon', 'Google'].map((brand) => (
+              {[
+                { name: 'Apple', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg' },
+                { name: 'Samsung', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
+                { name: 'Sony', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg' },
+                { name: 'LG', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/20/LG_symbol.svg' },
+                { name: 'Dell', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Dell_Logo.svg' },
+                { name: 'Canon', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Canon_wordmark.svg' },
+                { name: 'Google', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg' },
+              ].map((brand) => (
                 <div 
-                  key={brand}
-                  className="px-6 py-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+                  key={brand.name}
+                  className="px-6 py-3 bg-background rounded-lg border border-border shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center h-16 w-32"
                 >
-                  <span className="text-lg font-semibold text-foreground">{brand}</span>
+                  <img 
+                    src={brand.logo} 
+                    alt={brand.name} 
+                    className="h-8 w-auto max-w-full object-contain dark:invert dark:brightness-0 dark:contrast-200"
+                  />
                 </div>
               ))}
             </div>
